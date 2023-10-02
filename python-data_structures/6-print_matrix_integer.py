@@ -7,6 +7,6 @@ def print_matrix_integer(matrix=[[]]):
         leny = len(matrix[x])
         for y in range(leny):
             if y == leny - 1:
-                print("{}".format(matrix[x][y]))
+                print("{:d}".format(matrix[x][y]))
             else:
-                print("{}".format(matrix[x][y]), end=" ")
+                print("{:d}".format(matrix[x][y]), end=" ")
