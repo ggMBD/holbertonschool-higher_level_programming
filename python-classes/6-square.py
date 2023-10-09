@@ -7,12 +7,6 @@ class Square():
     """ create a square with spesial position"""
     def __init__(self, size=0, position=(0, 0)):
         """ inisalise the size of the square """
-        if type(size) is not int:
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        elif len(position) != 2 or position[0] < 0 or position[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
         self.__size = size
         self.__position = position
 
@@ -20,18 +14,6 @@ class Square():
     def size(self):
         """ getter for the size """
         return self.__size
-
-    @property
-    def position(self):
-        """ getter for the position """
-        return self.__position
-
-    @position.setter
-    def position(self, value):
-        """ setter for the position """
-        if len(value) != 2 or value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
 
     @size.setter
     def size(self, size):
@@ -41,6 +23,20 @@ class Square():
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
+
+    @property
+    def position(self):
+        """ getter for the position """
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        """ setter for the position """
+        if (len(value) != 2 or value[0] < 0 or value[1] < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if (not isinstance(value, tuple)):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """ function that returns the current square area """
