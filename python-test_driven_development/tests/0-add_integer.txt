@@ -72,3 +72,9 @@ test with not legal number:
     Traceback (most recent call last):
     ...
     ValueError: cannot convert float NaN to integer
+
+test with big:
+    >>> add_integer(1e555)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
