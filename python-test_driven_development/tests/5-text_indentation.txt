@@ -1,0 +1,11 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("HAAAAAAAAAAAAAAAA!!!!!!!")
+HAAAAAAAAAAAAAAAA!!!!!!!
+>>> text_indentation("")
+>>> text_indentation("my, name: is? maouia?")
+my, name:
+<BLANKLINE>
+is?
+<BLANKLINE>
+maouia?
+<BLANKLINE>
