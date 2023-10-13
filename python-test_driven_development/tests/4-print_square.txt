@@ -21,4 +21,18 @@ ValueError: size must be >= 0
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+>>> print_square(None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/maouia/holbertonschool-higher_level_programming/python-test_driven_development/4-print_square.py", line 19, in print_square
+    raise ValueError("size must be >= 0")
+ValueError: size must be >= 0
+>>> print_square(10 ** 999)
+Traceback (most recent call last):
+...
+OverflowError: cannot fit 'int' into an index-sized integer
+>>> print_square("99")
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
 >>>
