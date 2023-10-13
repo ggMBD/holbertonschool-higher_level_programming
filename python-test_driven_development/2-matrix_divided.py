@@ -11,9 +11,11 @@ def matrix_divided(matrix, div):
     2- div must be a number (integer or float)
     3- div can not be equal to 0
     """
-    if div == 0 or type(div) not in (int, float):
+    if type(div) not in (int, float):
         raise ValueError("div must be a number")
-
+    if div == 0:
+        raise ValueError("ZeroDivisionError")
+    
     if not all(
         isinstance(row, list) and
             all(isinstance(val, (int, float)) for val in row)
