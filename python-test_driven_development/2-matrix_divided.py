@@ -14,7 +14,7 @@ def matrix_divided(matrix, div):
     if type(div) not in (int, float):
         raise ValueError("div must be a number")
     if div == 0:
-        raise ValueError("ZeroDivisionError")
+        raise ZeroDivisionError("division by zero")
     
     if not all(
         isinstance(row, list) and
@@ -24,9 +24,8 @@ def matrix_divided(matrix, div):
             "matrix must be a matrix (list of lists) of integers/floats"
             )
 
-    colum_len = len(matrix[0])
-    if not all(len(row) == colum_len for row in matrix):
-        raise ValueError("Each row of the matrix must have the same size")
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
 
     result = [[round(cell / div, 2) for cell in row] for row in matrix]
 
