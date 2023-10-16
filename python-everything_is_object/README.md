@@ -14,3 +14,7 @@
 2-answer.txt
     No
 
+3. Right count = 
+
+3-answer.txt
+    No
