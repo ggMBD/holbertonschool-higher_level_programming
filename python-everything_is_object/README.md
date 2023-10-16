@@ -1,4 +1,9 @@
 # Python - Everything is object
+0. Who am I?
+
+0-answer.txt
+    type
+
 1. Where are you? 
 
 1-answer.txt
