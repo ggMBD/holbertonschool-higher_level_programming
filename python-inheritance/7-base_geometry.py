@@ -3,8 +3,12 @@
 
 
 class BaseGeometry:
-    """ create class geometry with Public instance method: area """
+    """ create class geometry with Public instance method:
+    1- area
+    2- integer_validator
+    """
     def area(self):
+        """ raise exception error """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
