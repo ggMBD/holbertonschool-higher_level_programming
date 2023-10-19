@@ -33,4 +33,9 @@ ValueError: negativ float must be greater than 0
 Traceback (most recent call last):
 ...
 TypeError: negativ float must be an integer
+>>> test.integer_validator("bool", True)
+>>> test.integer_validator("bool", False)
+Traceback (most recent call last):
+...
+ValueError: bool must be greater than 0
 >>>
