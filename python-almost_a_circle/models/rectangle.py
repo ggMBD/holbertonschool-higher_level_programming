@@ -25,6 +25,14 @@ class Rectangle(Base):
         """ return the area ofthe rectangle """
         return self.__width * self.__height
 
+    def desplay(self):
+        """print the rectangle with #"""
+        if self.__size == 0:
+            print()
+            return
+        for i in range(self.__height):
+            print("{}".format("#" * self.__width))
+
     @property
     def width(self):
         """
