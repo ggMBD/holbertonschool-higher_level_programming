@@ -1,6 +1,6 @@
 #!/usr/bin/python
 """
-module Rectangle
+module for Rectangle class
 """
 from models.base import Base
 
@@ -15,10 +15,10 @@ class Rectangle(Base):
         Initialize a Rectangle object with the specified
         width, height, x, y, and optional id.
         """
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
