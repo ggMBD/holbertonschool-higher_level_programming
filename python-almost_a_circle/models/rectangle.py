@@ -27,8 +27,9 @@ class Rectangle(Base):
 
     def display(self):
         """print the rectangle with #"""
+        print("{}".format("\n" * self.__y), end="")
         for i in range(self.__height):
-            print("{}".format("#" * self.__width))
+            print("{}{}".format(" " * self.__x, "#" * self.__width))
 
     @property
     def width(self):
@@ -113,3 +114,18 @@ class Rectangle(Base):
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}"\
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        count = 0
+        for arg in args:
+            if count == 0:
+                self.id = arg
+            if count == 1:
+                self.__width = arg
+            if count == 2:
+                self.__height = arg
+            if count == 3:
+                self.__x = arg
+            if count == 4:
+                self.__y = arg
+            count += 1
