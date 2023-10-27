@@ -26,7 +26,8 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """print the rectangle with #"""
+        """print the rectangle with #
+        by taking care of x and y """
         print("{}".format("\n" * self.__y), end="")
         for i in range(self.__height):
             print("{}{}".format(" " * self.__x, "#" * self.__width))
@@ -116,6 +117,7 @@ class Rectangle(Base):
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args):
+        """ Update the class Rectangle """
         count = 0
         for arg in args:
             if count == 0:
