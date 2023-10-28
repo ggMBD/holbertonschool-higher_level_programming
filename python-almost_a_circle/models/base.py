@@ -44,5 +44,5 @@ class Base:
         returns the dictionary representation of json_string
         """
         if json_string is None or json_string == "[]":
-            return "[]"
+            return []
         return json.loads(json_string)
