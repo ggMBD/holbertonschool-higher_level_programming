@@ -2,43 +2,98 @@
 import unittest
 from models.square import Square
 
-class TestSquare(unittest.TestCase):
 
-    def test_square_instance(self):
-        square_instance = Square(5)
-        self.assertIsInstance(square_instance, Square)
+class TestSquareCases(unittest.TestCase):
+    """
+    Test cases for the Square class methods.
+    """
 
-    def test_square_size_property(self):
-        square_instance = Square(5)
-        self.assertEqual(square_instance.size, 5)
+    def test_valid_constructor(self):
+        """
+        Test creating a valid Square instance with a constructor.
+        """
+        square = Square(4, 1, 2, 10)
+        self.assertEqual(square.size, 4)
+        self.assertEqual(square.x, 1)
+        self.assertEqual(square.y, 2)
+        self.assertEqual(square.id, 10)
 
-    def test_square_size_setter(self):
-        square_instance = Square(5)
-        square_instance.size = 10
-        self.assertEqual(square_instance.size, 10)
+    def test_invalid_size(self):
+        """
+        Test for TypeError when size is invalid (non-integer).
+        """
+        with self.assertRaises(TypeError):
+            square = Square("invalid", 2, 3, 10)
 
-    def test_square_area(self):
-        square_instance = Square(5)
-        self.assertEqual(square_instance.area(), 25)
+    def test_negative_size(self):
+        """
+        Test for ValueError when size is negative.
+        """
+        with self.assertRaises(ValueError):
+            square = Square(-1, 2, 3, 10)
 
-    def test_square_str(self):
-        square_instance = Square(5, 2, 3, 7)
-        self.assertEqual(str(square_instance), "[Square] (7) 2/3 - 5")
+    def test_invalid_x(self):
+        """
+        Test for TypeError when x is invalid (non-integer).
+        """
+        with self.assertRaises(TypeError):
+            square = Square(4, "invalid", 3, 10)
 
-    def test_square_update_args(self):
-        square_instance = Square(5, 2, 3, 7)
-        square_instance.update(1, 10, 20, 30)
-        self.assertEqual(str(square_instance), "[Square] (1) 20/30 - 10")
+    def test_negative_x(self):
+        """
+        Test for ValueError when x is negative.
+        """
+        with self.assertRaises(ValueError):
+            square = Square(4, -2, 3, 10)
 
-    def test_square_update_kwargs(self):
-        square_instance = Square(5, 2, 3, 7)
-        square_instance.update(id=1, size=10, x=20, y=30)
-        self.assertEqual(str(square_instance), "[Square] (1) 20/30 - 10")
+    def test_invalid_y(self):
+        """
+        Test for TypeError when y is invalid (non-integer).
+        """
+        with self.assertRaises(TypeError):
+            square = Square(4, 2, "invalid", 10)
 
-    def test_square_to_dictionary(self):
-        square_instance = Square(5, 2, 3, 7)
-        dictionary = square_instance.to_dictionary()
-        self.assertEqual(dictionary, {'id': 7, 'size': 5, 'x': 2, 'y': 3})
+    def test_negative_y(self):
+        """
+        Test for ValueError when y is negative.
+        """
+        with self.assertRaises(ValueError):
+            square = Square(4, 2, -3, 10)
 
-if __name__ == "__main__":
+    def test_str(self):
+        """
+        Test the string representation of a Square.
+        """
+        square = Square(4, 1, 2, 10)
+        expected_str = "[Square] (10) 1/2 - 4"
+        self.assertEqual(str(square), expected_str)
+
+    def test_update(self):
+        """
+        Test the update() method for Square.
+        """
+        square = Square(4, 1, 2, 10)
+        square.update(20)
+        self.assertEqual(square.id, 20)
+        square.update(20, 6, 7, 8)
+        self.assertEqual(square.size, 6)
+        self.assertEqual(square.x, 7)
+        self.assertEqual(square.y, 8)
+
+    def test_to_dictionary(self):
+        """
+        Test the to_dictionary() method for Square.
+        """
+        square = Square(4, 1, 2, 10)
+        square_dict = square.to_dictionary()
+        expected_dict = {
+            'id': 10,
+            'size': 4,
+            'x': 1,
+            'y': 2
+        }
+        self.assertEqual(square_dict, expected_dict)
+
+
+if __name__ == '__main__':
     unittest.main()
