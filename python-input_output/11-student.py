@@ -27,5 +27,6 @@ class Student:
             return filtered
 
     def reload_from_json(self, json):
+        """relode from json"""
         for k, v in json.items():
             setattr(self, k, v)
