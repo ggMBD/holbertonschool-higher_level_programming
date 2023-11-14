@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ module
 Student to JSON """
-import json as js
+
 
 class Student:
     """ crate class student with:
@@ -11,6 +11,7 @@ class Student:
             only attribute names contained in this list will be retrieved
             if atrrs is none: all attributes will be retrieved
     """
+
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
         self.last_name = last_name
