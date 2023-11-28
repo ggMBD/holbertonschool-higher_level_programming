@@ -3,7 +3,7 @@
 Script that lists all states from the database hbtn_0e_0_usa.
 """
 
-import mysql.connector as MySQLdb
+import MySQLdb
 import sys
 
 if __name__ == "__main__":
@@ -12,7 +12,6 @@ if __name__ == "__main__":
     """
 
     username, password, database = sys.argv[1:4]
-
 
     # Connect to MySQL server
     db = MySQLdb.connect(
