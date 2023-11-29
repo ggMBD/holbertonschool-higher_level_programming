@@ -23,7 +23,9 @@ if __name__ == "__main__":
     """Create a cursor object to interact with the database."""
     cursor = db.cursor()
 
-    query = "SELECT cities.id , cities.name , states.name FROM cities JOIN states ON states.id = cities.state_id ORDER BY cities.id"
+    query = "SELECT cities.id , cities.name , states.name \
+            FROM cities JOIN states ON states.id = cities.state_id \
+            ORDER BY cities.id"
     cursor.execute(query)
 
     results = cursor.fetchall()
