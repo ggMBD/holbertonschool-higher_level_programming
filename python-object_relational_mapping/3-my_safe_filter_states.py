@@ -24,9 +24,8 @@ if __name__ == "__main__":
     """Create a cursor object to interact with the database."""
     cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id"\
-        .format(state)
-    cursor.execute(query)
+    query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id"
+    cursor.execute(query, (state,))
 
     results = cursor.fetchall()
     for row in results:
