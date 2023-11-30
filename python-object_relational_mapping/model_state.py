@@ -15,7 +15,3 @@ class State(Base):
 
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
-
-    def __repr__(self):
-        """String representation of the State object."""
-        return f"State(id={self.id}, name={self.name})"
